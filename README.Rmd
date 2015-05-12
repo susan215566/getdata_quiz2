@@ -1,28 +1,28 @@
 ---
-output: word_document
+quiz 2: 10/10
 ---
-# First load httr package, if not install, type ` install.packages("httr")`
+ # First load httr package, if not install, type ` install.packages("httr")`
 ```{r }
 library(httr)
 ```
 
-# set oauth endpoint to github
+ # set oauth endpoint to github
 ```{r }
 oauth_endpoints("github")
 ```
-# connecet to github using your key and secret. replace with yours
-
+ # connecet to github using your key and secret. replace with yours
+ 
 ```{r}
 myapp<- oauth_app("github", key="a9d5df264ad77bd0059d",
 secret="0b9c64ffa855c8c4cec8c6ad2352c3ccbdad6faf")
 ```
-# get token to access to API
+ # get token to access to API
 ```{r}
 github_token<-oauth2.0_token(oauth_endpoints("github"), myapp, cache=FALSE)
 
 gtoken<-config(token = github_token)
 ```
-# get information from the url you want information. 
+ # get information from the url you want information. 
 ```{r}
 url<-GET("https://api.github.com/users/jtleek/repos", gtoken)
 ```
